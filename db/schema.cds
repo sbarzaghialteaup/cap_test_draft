@@ -65,6 +65,10 @@ entity SystemProducts : cuid {
 
 }
 
+annotate Systems with {
+    ID @Core.Computed;
+};
+
 annotate SystemProducts with {
     ID @Core.Computed;
 }
