@@ -30,6 +30,7 @@ entity Products : cuid, managed {
     name        : String(50);
 
 }
+
 entity Systems : cuid, managed {
 
         @title       : 'System Name'
@@ -63,3 +64,8 @@ entity SystemProducts : cuid {
     product   : Association to Products;
 
 }
+
+annotate SystemProducts with {
+    ID @Core.Computed;
+}
+

@@ -27,6 +27,7 @@ annotate Services.Systems with @(
 		Facets: [
 			{$Type: 'UI.ReferenceFacet', Label: 'Identification', Target: '@UI.Identification'},
 			{$Type: 'UI.ReferenceFacet', Label: '{i18n>General}', Target: '@UI.FieldGroup#General'},
+            {$Type: 'UI.ReferenceFacet', Label: 'Products', Target: 'products/@UI.LineItem'},
 		],
 		FieldGroup#General: {
 			Data: [
@@ -36,5 +37,17 @@ annotate Services.Systems with @(
 
 			]
 		}
+	}
+);
+
+////////////////////////////////////////////////////////////////////////////
+//
+//	Products
+//
+annotate Services.SystemProducts with @(
+	UI: {
+		LineItem: [
+			{Value: product_ID}
+		]
 	}
 );
