@@ -22,6 +22,14 @@ entity Servers : cuid, managed {
 
 }
 
+@cds.odata.valuelist
+entity Products : cuid, managed {
+
+    @title       : 'Product'
+    @description : 'Product'
+    name        : String(50);
+
+}
 entity Systems : cuid, managed {
 
         @title       : 'System Name'
@@ -38,5 +46,20 @@ entity Systems : cuid, managed {
                 TextArrangement : #TextOnly
         }
         server      : Association to Servers;
+
+        products    : Composition of many SystemProducts
+                        on products.parent = $self;
+}
+
+entity SystemProducts : cuid {
+
+    parent   : Association to Systems;
+
+    @title  : 'Product'
+    @Common : {
+        Text            : product.name,
+        TextArrangement : #TextOnly
+    }
+    product   : Association to Products;
 
 }
